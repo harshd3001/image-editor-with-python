@@ -10,9 +10,11 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QCoreApplication
-import cv2,mysquery
+import cv2
+# import mysquery
 import os
 from main2 import Ui_maineditor
+
 
 class Ui_openingwindow(object):
     def setupUi(self, openingwindow):
@@ -22,7 +24,8 @@ class Ui_openingwindow(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -31,7 +34,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
@@ -40,10 +44,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -52,7 +58,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
@@ -61,10 +68,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -73,7 +82,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
@@ -82,14 +92,16 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
         openingwindow.setPalette(palette)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/Harsh/Desktop/sem 6 project/application/logo.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(
+            "C:/Users/Harsh/Desktop/sem 6 project/application/logo.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         openingwindow.setWindowIcon(icon)
         openingwindow.setStatusTip("")
         openingwindow.setStyleSheet("background-color:#6f6f6f;\n"
-"color:white;")
+                                    "color:white;")
         openingwindow.setAnimated(False)
         self.centralwidget = QtWidgets.QWidget(openingwindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -101,14 +113,15 @@ class Ui_openingwindow(object):
         font.setUnderline(True)
         self.label.setFont(font)
         self.label.setStyleSheet("text-decoration:underline;\n"
-"color:white;")
+                                 "color:white;")
         self.label.setObjectName("label")
         self.browsebtn = QtWidgets.QPushButton(self.centralwidget)
-        self.browsebtn.setGeometry(QtCore.QRect(30, 160, 121, 41))
+        self.browsebtn.setGeometry(QtCore.QRect(135, 160, 121, 41))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -117,7 +130,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
@@ -126,10 +140,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -138,7 +154,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
@@ -147,10 +164,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -159,7 +178,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
@@ -168,7 +188,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
         self.browsebtn.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
@@ -177,13 +198,13 @@ class Ui_openingwindow(object):
         self.browsebtn.setFont(font)
         self.browsebtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.browsebtn.setStyleSheet("QPushButton{\n"
-"background-color:rgb(111, 111, 111);\n"
-"border:1px solid #6495ED;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color:white;\n"
-"color:black;\n"
-"}")
+                                     "background-color:rgb(111, 111, 111);\n"
+                                     "border:1px solid #6495ED;\n"
+                                     "}\n"
+                                     "QPushButton:hover{\n"
+                                     "background-color:white;\n"
+                                     "color:black;\n"
+                                     "}")
         self.browsebtn.setObjectName("browsebtn")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(110, 120, 181, 20))
@@ -194,12 +215,13 @@ class Ui_openingwindow(object):
         font.setWeight(75)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.previousedit = QtWidgets.QPushButton(self.centralwidget)
-        self.previousedit.setGeometry(QtCore.QRect(220, 160, 121, 41))
+        # self.previousedit = QtWidgets.QPushButton(self.centralwidget)
+        # self.previousedit.setGeometry(QtCore.QRect(220, 160, 121, 41))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -208,7 +230,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
@@ -217,10 +240,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -229,7 +254,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
@@ -238,10 +264,12 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -250,7 +278,8 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(111, 111, 111))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
@@ -259,31 +288,32 @@ class Ui_openingwindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
-        self.previousedit.setPalette(palette)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
+        # self.previousedit.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("MS Sans Serif")
         font.setPointSize(10)
         font.setItalic(True)
-        self.previousedit.setFont(font)
-        self.previousedit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.previousedit.setStyleSheet("QPushButton{\n"
-"background-color:rgb(111, 111, 111);\n"
-"border:1px solid #6495ED;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color:white;\n"
-"color:black;\n"
-"}")
-        self.previousedit.setObjectName("previousedit")
+        # self.previousedit.setFont(font)
+        # self.previousedit.setCursor(
+        # QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        # self.previousedit.setStyleSheet("QPushButton{\n"
+        #                                 "background-color:rgb(111, 111, 111);\n"
+        #                                 "border:1px solid #6495ED;\n"
+        #                                 "}\n"
+        #                                 "QPushButton:hover{\n"
+        #                                 "background-color:white;\n"
+        #                                 "color:black;\n"
+        #                                 "}")
+        # self.previousedit.setObjectName("previousedit")
         openingwindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(openingwindow)
         self.statusbar.setObjectName("statusbar")
         openingwindow.setStatusBar(self.statusbar)
-        #connecting functions to buttons
+        # connecting functions to buttons
         self.browsebtn.clicked.connect(self.loadimg)
-        self.previousedit.clicked.connect(self.previmg)
-        
+        # self.previousedit.clicked.connect(self.previmg)
 
         self.retranslateUi(openingwindow)
         QtCore.QMetaObject.connectSlotsByName(openingwindow)
@@ -293,48 +323,51 @@ class Ui_openingwindow(object):
         openingwindow.setWindowTitle(_translate("openingwindow", "Spark"))
         self.label.setText(_translate("openingwindow", "Welcome to Spark"))
         self.browsebtn.setText(_translate("openingwindow", "Browse image"))
-        self.label_2.setText(_translate("openingwindow", "Choose image to edit"))
-        self.previousedit.setText(_translate("openingwindow", "Previous edits"))
+        self.label_2.setText(_translate(
+            "openingwindow", "Choose image to edit"))
+        # self.previousedit.setText(_translate(
+        #     "openingwindow", "Previous edits"))
 
-     #backend code
+     # backend code
     def loadimg(self):
         try:
-            self.filename= QtWidgets.QFileDialog.getOpenFileName(filter="Image (*.*)")[0]
-            if(self.filename!=''):
+            self.filename = QtWidgets.QFileDialog.getOpenFileName(
+                filter="Image (*.*)")[0]
+            if (self.filename != ''):
                 self.image = cv2.imread(self.filename)
-                self.window=QtWidgets.QMainWindow()
-                self.ui=Ui_maineditor()
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_maineditor()
                 self.ui.setupUi(self.window)
-                self.ui.filenameopening=self.filename
+                self.ui.filenameopening = self.filename
                 self.ui.openfilefromopening()
                 self.window.show()
                 openingwindow.close()
             else:
-                raise 'self.filename is empty'   
+                raise 'self.filename is empty'
         except:
             pass
 
-    def  previmg(self):
+    def previmg(self):
         try:
-            mysquery.retrieveimg()
-            self.name= QtWidgets.QFileDialog.getOpenFileName(directory="C:/Users/Harsh/Desktop/sem 6 project/application/prev_images",filter="Image (*.*)")[0]  
-            if(self.name!=''):
+            # mysquery.retrieveimg()
+            self.name = QtWidgets.QFileDialog.getOpenFileName(
+                directory="C:/Users/Harsh/Desktop/sem 6 project/application/prev_images", filter="Image (*.*)")[0]
+            if (self.name != ''):
                 self.image = cv2.imread(self.name)
-                self.window=QtWidgets.QMainWindow()
-                self.ui=Ui_maineditor()
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_maineditor()
                 self.ui.setupUi(self.window)
-                self.ui.filenameopening=self.name
+                self.ui.filenameopening = self.name
                 self.ui.openfilefromopening()
                 self.window.show()
-                dir="C:/Users/Harsh/Desktop/sem 6 project/application/prev_images"
+                dir = "C:/Users/Harsh/Desktop/sem 6 project/application/prev_images"
                 for j in os.listdir(dir):
-                        os.remove(os.path.join(dir,j))
+                    os.remove(os.path.join(dir, j))
                 openingwindow.close()
             else:
-                raise'self.name is empty'
+                raise 'self.name is empty'
         except:
-            pass             
-        
+            pass
 
 
 if __name__ == "__main__":

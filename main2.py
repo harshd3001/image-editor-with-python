@@ -9,11 +9,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QColorDialog,QMessageBox
-import cv2,imutils
+from PyQt5.QtWidgets import QColorDialog, QMessageBox
+import cv2
+import imutils
 import numpy as np
-#importing tools
-import options,mysquery
+# importing tools
+import options
+# import mysquery
+
 
 class Ui_maineditor(object):
     def setupUi(self, maineditor):
@@ -25,12 +28,13 @@ class Ui_maineditor(object):
         maineditor.setMaximumSize(QtCore.QSize(1920, 1080))
         maineditor.showMaximized()
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/Harsh/Desktop/sem 6 project/application/logo.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(
+            "C:/Users/Harsh/Desktop/sem 6 project/application/logo.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         maineditor.setWindowIcon(icon)
         maineditor.setWindowOpacity(1.0)
         maineditor.setAutoFillBackground(False)
         maineditor.setStyleSheet("background-color:#6f6f6f;\n"
-"color:white;")
+                                 "color:white;")
         maineditor.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(maineditor)
         self.centralwidget.setObjectName("centralwidget")
@@ -41,8 +45,8 @@ class Ui_maineditor(object):
         font.setPointSize(20)
         self.Tools.setFont(font)
         self.Tools.setStyleSheet("background-color:#6f6f6f;\n"
-"color:white;\n"
-"")
+                                 "color:white;\n"
+                                 "")
         self.Tools.setObjectName("Tools")
         self.ajustbtn = QtWidgets.QPushButton(self.Tools)
         self.ajustbtn.setGeometry(QtCore.QRect(20, 90, 231, 41))
@@ -106,7 +110,8 @@ class Ui_maineditor(object):
         font.setFamily("MV Boli")
         font.setPointSize(12)
         self.Revertallbtn.setFont(font)
-        self.Revertallbtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.Revertallbtn.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Revertallbtn.setObjectName("Revertallbtn")
         self.options = QtWidgets.QGroupBox(self.centralwidget)
         self.options.setGeometry(QtCore.QRect(1550, 10, 341, 981))
@@ -115,7 +120,7 @@ class Ui_maineditor(object):
         font.setPointSize(20)
         self.options.setFont(font)
         self.options.setStyleSheet("background-color:#6f6f6f;\n"
-"color:white;")
+                                   "color:white;")
         self.options.setObjectName("options")
         self.savechgbtn = QtWidgets.QPushButton(self.options)
         self.savechgbtn.setGeometry(QtCore.QRect(20, 847, 151, 41))
@@ -228,9 +233,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.bandwbtn.setFont(font)
         self.bandwbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                    "    width: 0;\n"
+                                    "    height: 0;\n"
+                                    "}")
         self.bandwbtn.setObjectName("bandwbtn")
         self.embossbtn = QtWidgets.QRadioButton(self.filterfrm)
         self.embossbtn.setGeometry(QtCore.QRect(20, 130, 151, 20))
@@ -240,21 +245,22 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.embossbtn.setFont(font)
         self.embossbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                     "    width: 0;\n"
+                                     "    height: 0;\n"
+                                     "}")
         self.embossbtn.setObjectName("embossbtn")
         self.grayscalebtn = QtWidgets.QRadioButton(self.filterfrm)
         self.grayscalebtn.setGeometry(QtCore.QRect(20, 170, 151, 20))
-        self.grayscalebtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.grayscalebtn.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         font = QtGui.QFont()
         font.setFamily("MV Boli")
         font.setPointSize(10)
         self.grayscalebtn.setFont(font)
         self.grayscalebtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                        "    width: 0;\n"
+                                        "    height: 0;\n"
+                                        "}")
         self.grayscalebtn.setObjectName("grayscalebtn")
         self.bleanbtn = QtWidgets.QRadioButton(self.filterfrm)
         self.bleanbtn.setGeometry(QtCore.QRect(20, 220, 151, 20))
@@ -264,9 +270,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.bleanbtn.setFont(font)
         self.bleanbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                    "    width: 0;\n"
+                                    "    height: 0;\n"
+                                    "}")
         self.bleanbtn.setObjectName("bleanbtn")
         self.leerbtn = QtWidgets.QRadioButton(self.filterfrm)
         self.leerbtn.setGeometry(QtCore.QRect(20, 260, 151, 20))
@@ -276,9 +282,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.leerbtn.setFont(font)
         self.leerbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                   "    width: 0;\n"
+                                   "    height: 0;\n"
+                                   "}")
         self.leerbtn.setObjectName("leerbtn")
         self.sepiabtn = QtWidgets.QRadioButton(self.filterfrm)
         self.sepiabtn.setGeometry(QtCore.QRect(20, 310, 151, 20))
@@ -288,9 +294,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.sepiabtn.setFont(font)
         self.sepiabtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                    "    width: 0;\n"
+                                    "    height: 0;\n"
+                                    "}")
         self.sepiabtn.setObjectName("sepiabtn")
         self.blurfilters = QtWidgets.QLabel(self.filterfrm)
         self.blurfilters.setGeometry(QtCore.QRect(20, 380, 121, 31))
@@ -309,9 +315,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.gausbtn.setFont(font)
         self.gausbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                   "    width: 0;\n"
+                                   "    height: 0;\n"
+                                   "}")
         self.gausbtn.setObjectName("gausbtn")
         self.medbtn = QtWidgets.QRadioButton(self.filterfrm)
         self.medbtn.setGeometry(QtCore.QRect(20, 480, 151, 20))
@@ -321,9 +327,9 @@ class Ui_maineditor(object):
         font.setPointSize(10)
         self.medbtn.setFont(font)
         self.medbtn.setStyleSheet("QRadioButton::indicator {\n"
-"    width: 0;\n"
-"    height: 0;\n"
-"}")
+                                  "    width: 0;\n"
+                                  "    height: 0;\n"
+                                  "}")
         self.medbtn.setObjectName("medbtn")
         self.cropfrm = QtWidgets.QFrame(self.filterfrm)
         self.cropfrm.setGeometry(QtCore.QRect(0, 10, 331, 741))
@@ -474,9 +480,9 @@ class Ui_maineditor(object):
         self.imgviewer.setGeometry(QtCore.QRect(320, 30, 1201, 971))
         self.imgviewer.setAutoFillBackground(False)
         self.imgviewer.setStyleSheet("background-color:#6f6f6f;\n"
-"color:white;\n"
-"border:1px solid white;\n"
-"")
+                                     "color:white;\n"
+                                     "border:1px solid white;\n"
+                                     "")
         self.imgviewer.setText("")
         self.imgviewer.setTextFormat(QtCore.Qt.PlainText)
         self.imgviewer.setScaledContents(True)
@@ -486,40 +492,40 @@ class Ui_maineditor(object):
         self.statusbar = QtWidgets.QStatusBar(maineditor)
         self.statusbar.setObjectName("statusbar")
         maineditor.setStatusBar(self.statusbar)
-         #creating some global variables
-        self.filename = None # Will hold the image address location
-        self.filenameopening=None#getting filename from opening window
-        self.tmp = None # Will hold the temporary image for display
-        self.cropping=False#cropping global variable
-        self.textcol=None#colour of text
-        self.brightness_value_now=0 #global brightness value
-        self.contrast_value_now=0 #global contrast value
-        self.blur_value_now=0 #global blur value
-        self.trans_value_now=0#global translate image value
-        #connecting my functions
+        # creating some global variables
+        self.filename = None  # Will hold the image address location
+        self.filenameopening = None  # getting filename from opening window
+        self.tmp = None  # Will hold the temporary image for display
+        self.cropping = False  # cropping global variable
+        self.textcol = None  # colour of text
+        self.brightness_value_now = 0  # global brightness value
+        self.contrast_value_now = 0  # global contrast value
+        self.blur_value_now = 0  # global blur value
+        self.trans_value_now = 0  # global translate image value
+        # connecting my functions
         self.ajustbtn.clicked.connect(self.adjustclick)
         self.cropbtn.clicked.connect(self.cropclick)
         self.filterbtn.clicked.connect(self.filterclick)
         self.textbtn.clicked.connect(self.textclick)
-        #self.chscolorbtn.clicked.connect(self.openColorDialog)
+        # self.chscolorbtn.clicked.connect(self.openColorDialog)
         self.openbtn.clicked.connect(self.loadimg)
         self.revertbtn.clicked.connect(self.revert)
         self.savechgbtn.clicked.connect(self.savechg)
         self.Revertallbtn.clicked.connect(self.revertall)
         self.savebtn.clicked.connect(self.savePhoto)
-        #adjust options
+        # adjust options
         self.brightslider.valueChanged['int'].connect(self.brightness_value)
         self.contraslider.valueChanged['int'].connect(self.contrast_value)
         self.blurslider.valueChanged['int'].connect(self.blur_value)
         self.transslider.valueChanged['int'].connect(self.get_transval)
         self.sharpbtn.clicked.connect(self.sharpenimg)
         self.invertbtn.clicked.connect(self.invertcol)
-        #crop options
+        # crop options
         self.croppingbtn.clicked.connect(self.crop)
         self.flipvbtn.clicked.connect(self.flipv)
         self.fliphbtn.clicked.connect(self.fliph)
         self.rotbtn.clicked.connect(self.rotate)
-        #filter options
+        # filter options
         self.bandwbtn.clicked.connect(self.filt)
         self.embossbtn.clicked.connect(self.filt)
         self.grayscalebtn.clicked.connect(self.filt)
@@ -528,12 +534,11 @@ class Ui_maineditor(object):
         self.sepiabtn.clicked.connect(self.filt)
         self.gausbtn.clicked.connect(self.filt)
         self.medbtn.clicked.connect(self.filt)
-        #text options
+        # text options
         self.Addtextbtn.clicked.connect(self.addtext)
         self.chscolorbtn.clicked.connect(self.openColorDialog)
         self.retranslateUi(maineditor)
         QtCore.QMetaObject.connectSlotsByName(maineditor)
-        
 
     def retranslateUi(self, maineditor):
         _translate = QtCore.QCoreApplication.translate
@@ -588,79 +593,81 @@ class Ui_maineditor(object):
 
     def openfilefromopening(self):
         self.image = cv2.imread(self.filenameopening)
-        self.tmp=self.image
+        self.tmp = self.image
         self.setPhoto(self.tmp)
 
     def loadimg(self):
         try:
-            self.name= QtWidgets.QFileDialog.getOpenFileName(filter="Image (*.*)")[0]
-            if(self.name!=''):
-                self.filename=self.name
+            self.name = QtWidgets.QFileDialog.getOpenFileName(
+                filter="Image (*.*)")[0]
+            if (self.name != ''):
+                self.filename = self.name
                 self.image = cv2.imread(self.filename)
-                self.tmp=self.image
-                self.setPhoto(self.tmp)            
+                self.tmp = self.image
+                self.setPhoto(self.tmp)
             else:
                 raise 'self.name is empty'
         except:
             pass
 
-    def setPhoto(self,image):
+    def setPhoto(self, image):
         self.editable = image
-        image = imutils.resize(image,width=1201,height=971)
+        image = imutils.resize(image, width=1201, height=971)
         frame = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = QtGui.QImage(frame, frame.shape[1],frame.shape[0],frame.strides[0],QtGui.QImage.Format_RGB888)
+        image = QtGui.QImage(
+            frame, frame.shape[1], frame.shape[0], frame.strides[0], QtGui.QImage.Format_RGB888)
         self.imgviewer.setPixmap(QtGui.QPixmap.fromImage(image))
 
     def revert(self):
-        self.setPhoto(self.tmp) 
+        self.setPhoto(self.tmp)
 
     def savechg(self):
-        self.tmp=self.editable  
+        self.tmp = self.editable
 
     def revertall(self):
         self.image = cv2.imread(self.filename)
-        self.tmp=self.image
+        self.tmp = self.image
         try:
-            self.setPhoto(self.tmp)            
+            self.setPhoto(self.tmp)
         except:
-            pass    
+            pass
 
     def savePhoto(self):
-        if(self.ifsaveclicked()):
+        if (self.ifsaveclicked()):
             try:
-                filename = QtWidgets.QFileDialog.getSaveFileName(filter="JPG(*.jpg);;PNG(*.png);;TIFF(*.tiff);;BMP(*.bmp)")[0]
-                cv2.imwrite(filename,self.tmp)
-                mysquery.insertblob(filename)
+                filename = QtWidgets.QFileDialog.getSaveFileName(
+                    filter="JPG(*.jpg);;PNG(*.png);;TIFF(*.tiff);;BMP(*.bmp)")[0]
+                cv2.imwrite(filename, self.tmp)
+                # mysquery.insertblob(filename)
             except:
-                pass            
+                pass
         else:
-            self.savepopupwar()    
+            self.savepopupwar()
 
-#adjustfrm
-    def brightness_value(self,value):
-        self.brightness_value_now=value
+# adjustfrm
+    def brightness_value(self, value):
+        self.brightness_value_now = value
         self.updateadjustedimg()
 
-    def contrast_value(self,value):
+    def contrast_value(self, value):
         self.contrast_value_now = value
         self.updateadjustedimg()
 
-    def blur_value(self,value):
+    def blur_value(self, value):
         self.blur_value_now = value
         self.updateadjustedimg()
-    
+
     def adjustclick(self):
-        if(self.ifsaveclicked()): 
+        if (self.ifsaveclicked()):
             self.adjustfrm.show()
             self.cropfrm.show()
             self.filterfrm.show()
             self.textfrm.show()
         else:
-            self.savepopupwar()     
-                 
+            self.savepopupwar()
 
     def cropclick(self):
-        if(self.ifsaveclicked()): 
+        if (self.ifsaveclicked()):
             self.adjustfrm.hide()
             self.cropfrm.show()
             self.filterfrm.show()
@@ -669,7 +676,7 @@ class Ui_maineditor(object):
             self.savepopupwar()
 
     def filterclick(self):
-        if(self.ifsaveclicked()): 
+        if (self.ifsaveclicked()):
             self.adjustfrm.hide()
             self.cropfrm.hide()
             self.filterfrm.show()
@@ -678,7 +685,7 @@ class Ui_maineditor(object):
             self.savepopupwar()
 
     def textclick(self):
-        if(self.ifsaveclicked()): 
+        if (self.ifsaveclicked()):
             self.adjustfrm.hide()
             self.cropfrm.hide()
             self.filterfrm.hide()
@@ -687,16 +694,17 @@ class Ui_maineditor(object):
             self.savepopupwar()
 
     def savepopupwar(self):
-        msg=QMessageBox()
+        msg = QMessageBox()
         msg.setWindowTitle('Changes may be lost')
         msg.setText('Please either save the changes or revert them!')
         msg.setIcon(QMessageBox.Warning)
-        msg.setInformativeText('You have not saved the changes you have made.click the save changes button to save them oterwise the changes will be lost')
-        x=msg.exec_()
+        msg.setInformativeText(
+            'You have not saved the changes you have made.click the save changes button to save them oterwise the changes will be lost')
+        x = msg.exec_()
 
     def ifsaveclicked(self):
         try:
-            if self.editable.shape==self.tmp.shape:
+            if self.editable.shape == self.tmp.shape:
                 difference = cv2.subtract(self.editable, self.tmp)
                 b, g, r = cv2.split(difference)
                 if cv2.countNonZero(b) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(r) == 0:
@@ -706,79 +714,82 @@ class Ui_maineditor(object):
         except:
             return False
 
-#updating values in adjustframe to label
-    def updateadjustedimg(self): 
-        img = options.brightness_edit(self.brightness_value_now,self.tmp)
-        img = options.contrast_edit(self.contrast_value_now,img) 
-        img = options.blur_edit(self.blur_value_now,img)     
+# updating values in adjustframe to label
+    def updateadjustedimg(self):
+        img = options.brightness_edit(self.brightness_value_now, self.tmp)
+        img = options.contrast_edit(self.contrast_value_now, img)
+        img = options.blur_edit(self.blur_value_now, img)
         self.setPhoto(img)
 
     def sharpenimg(self):
         kernel = np.array([[0, -1, 0],
-                   [-1, 5,-1],
-                   [0, -1, 0]])              
-        img= cv2.filter2D(src=self.editable, ddepth=-1, kernel=kernel)
-        self.setPhoto(img)    
-
-    def invertcol(self):
-        img=cv2.bitwise_not(self.editable)  
+                           [-1, 5, -1],
+                           [0, -1, 0]])
+        img = cv2.filter2D(src=self.editable, ddepth=-1, kernel=kernel)
         self.setPhoto(img)
 
-#crop options
-    def crop(self):    
+    def invertcol(self):
+        img = cv2.bitwise_not(self.editable)
+        self.setPhoto(img)
+
+# crop options
+    def crop(self):
         self.cropping = False
-        self.cropped=False
-        self.x_start, self.y_start, self.x_end,self. y_end = 0, 0, 0, 0
-        image = imutils.resize(self.editable,width=1201,height=971)
+        self.cropped = False
+        self.x_start, self.y_start, self.x_end, self. y_end = 0, 0, 0, 0
+        image = imutils.resize(self.editable, width=1201, height=971)
         oriImage = image.copy()
+
         def mouse_crop(event, x, y, flags, param):
             # grab references to the global variables
-            #self.x_start,self. y_start, x_end, y_end
+            # self.x_start,self. y_start, x_end, y_end
 
-        
             # if the left mouse button was DOWN, start RECORDING
             # (x, y) coordinates and indicate that cropping is being
             if event == cv2.EVENT_LBUTTONDOWN:
                 self.x_start, self.y_start, self.x_end, self.y_end = x, y, x, y
                 self.cropping = True
-        
+
             # Mouse is Moving
             elif event == cv2.EVENT_MOUSEMOVE:
                 if self.cropping == True:
                     self.x_end, self.y_end = x, y
-        
+
             # if the left mouse button was released
             elif event == cv2.EVENT_LBUTTONUP:
                 # record the ending (x, y) coordinates
                 self.x_end, self.y_end = x, y
-                self.cropping = False# cropping is finished
-                refPoint = [(self.x_start, self.y_start), (self.x_end, self.y_end)]
-        
-                if len(refPoint) == 2: #when two points were found
-                    roi = oriImage[refPoint[0][1]:refPoint[1][1], refPoint[0][0]:refPoint[1][0]]
+                self.cropping = False  # cropping is finished
+                refPoint = [(self.x_start, self.y_start),
+                            (self.x_end, self.y_end)]
+
+                if len(refPoint) == 2:  # when two points were found
+                    roi = oriImage[refPoint[0][1]:refPoint[1]
+                                   [1], refPoint[0][0]:refPoint[1][0]]
                     self.setPhoto(roi)
-        
+
         cv2.namedWindow("image")
         cv2.setMouseCallback("image", mouse_crop)
-        
+
         while True:
             i = image.copy()
-            if  self.cropping==False:
+            if self.cropping == False:
                 cv2.imshow("image", image)
-                if(self.cropped==True):
+                if (self.cropped == True):
                     cv2.waitKey(1)
                     break
-            elif self.cropping==True:
-                cv2.rectangle(i, (self.x_start, self.y_start), (self.x_end,self.y_end), (255, 0, 0), 2)
-                self.cropped=True
+            elif self.cropping == True:
+                cv2.rectangle(i, (self.x_start, self.y_start),
+                              (self.x_end, self.y_end), (255, 0, 0), 2)
+                self.cropped = True
                 cv2.imshow("image", i)
             cv2.waitKey(1)
-            
-        #close all open windows
+
+        # close all open windows
         cv2.destroyAllWindows()
 
     def flipv(self):
-        image = cv2.flip(self.editable, 0)    
+        image = cv2.flip(self.editable, 0)
         self.setPhoto(image)
 
     def fliph(self):
@@ -786,63 +797,65 @@ class Ui_maineditor(object):
         self.setPhoto(image)
 
     def rotate(self):
-        rotimg=cv2.rotate(self.editable,cv2.ROTATE_90_CLOCKWISE)
+        rotimg = cv2.rotate(self.editable, cv2.ROTATE_90_CLOCKWISE)
         self.setPhoto(rotimg)
 
-    def get_transval(self,value):
-        self.trans_value_now=value
+    def get_transval(self, value):
+        self.trans_value_now = value
         self.traanslateimg()
 
-
     def traanslateimg(self):
-        self.tranimg=imutils.resize(self.tmp,width=1201,height=971)
-        self.trans_value_now=self.trans_value_now/10
-        if(self.trans_value_now==0):
-            tx,ty=0,0
-        else:    
-            tx, ty = 1201/(10-self.trans_value_now) , 971/(10-self.trans_value_now)
+        self.tranimg = imutils.resize(self.tmp, width=1201, height=971)
+        self.trans_value_now = self.trans_value_now/10
+        if (self.trans_value_now == 0):
+            tx, ty = 0, 0
+        else:
+            tx, ty = 1201/(10-self.trans_value_now), 971 / \
+                (10-self.trans_value_now)
         translation_matrix = np.array([
-                          [1, 0, tx],
-                          [0, 1, ty]
-                             ], dtype=np.float32)
-        translated_image = cv2.warpAffine(src=self.tranimg, M=translation_matrix, dsize=(1201, 971))
-        self.setPhoto(translated_image)        
+            [1, 0, tx],
+            [0, 1, ty]
+        ], dtype=np.float32)
+        translated_image = cv2.warpAffine(
+            src=self.tranimg, M=translation_matrix, dsize=(1201, 971))
+        self.setPhoto(translated_image)
 
-#filters options                     
+# filters options
     def filt(self):
         if self.bandwbtn.isChecked():
-            img=options.bandw(self.tmp)
+            img = options.bandw(self.tmp)
         elif self.embossbtn.isChecked():
-            img=options.emboss(self.tmp)
+            img = options.emboss(self.tmp)
         elif self.grayscalebtn.isChecked():
-            img=options.grayscal(self.tmp)
+            img = options.grayscal(self.tmp)
         elif self.bleanbtn.isChecked():
-            img=options.bleam(self.tmp)
+            img = options.bleam(self.tmp)
         elif self.leerbtn.isChecked():
-            img=options.leer(self.tmp)
+            img = options.leer(self.tmp)
         elif self.sepiabtn.isChecked():
-            img=options.sepia(self.tmp)
+            img = options.sepia(self.tmp)
         elif self.gausbtn.isChecked():
-            img=options.gaussian(self.tmp)
+            img = options.gaussian(self.tmp)
         elif self.medbtn.isChecked():
-            img=options.median(self.tmp)   
+            img = options.median(self.tmp)
         self.setPhoto(img)
-#text options
+# text options
+
     def openColorDialog(self):
-            self.txtcolor = QColorDialog.getColor()
-            if self.txtcolor.isValid():
-                rgbcol= tuple(int(self.txtcolor.name().lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
-                self.textcol=(rgbcol[2],rgbcol[1],rgbcol[0]) 
+        self.txtcolor = QColorDialog.getColor()
+        if self.txtcolor.isValid():
+            rgbcol = tuple(int(self.txtcolor.name().lstrip('#')
+                           [i:i+2], 16) for i in (0, 2, 4))
+            self.textcol = (rgbcol[2], rgbcol[1], rgbcol[0])
 
     def addtext(self):
-        val=self.textEdit.toPlainText()
-        valu=self.fontselect.currentText()
+        val = self.textEdit.toPlainText()
+        valu = self.fontselect.currentText()
         font = options.fontis(valu)
-        image = imutils.resize(self.editable,width=1201,height=971)
-        im=options.texter(image,val,font,self.textcol)
-        #after calling texter it changes the self.tmp variable
+        image = imutils.resize(self.editable, width=1201, height=971)
+        im = options.texter(image, val, font, self.textcol)
+        # after calling texter it changes the self.tmp variable
         self.setPhoto(im)
-
 
 
 if __name__ == "__main__":
